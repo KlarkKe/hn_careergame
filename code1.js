@@ -538,11 +538,11 @@ gdjs.GameCode.GDpopUPtriggerObjects1.length = 0;
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") < 10;
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") < 130;
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("CopperRedBar"), gdjs.GameCode.GDCopperRedBarObjects1);
 {for(var i = 0, len = gdjs.GameCode.GDCopperRedBarObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDCopperRedBarObjects1[i].SetValue(10 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "GameTimer"), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+    gdjs.GameCode.GDCopperRedBarObjects1[i].SetValue(130 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "GameTimer"), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
 }
 }
 { //Subevents
@@ -2553,7 +2553,7 @@ if (isConditionTrue_0) {
 }
 
 
-};gdjs.GameCode.userFunc0xe7cb68 = function GDJSInlineCode(runtimeScene) {
+};gdjs.GameCode.userFunc0xecee48 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 (function () {
   const tg = window.Telegram && window.Telegram.WebApp;
@@ -2594,7 +2594,7 @@ gdjs.GameCode.eventsList29 = function(runtimeScene, asyncObjectsList) {
 {
 
 
-gdjs.GameCode.userFunc0xe7cb68(runtimeScene);
+gdjs.GameCode.userFunc0xecee48(runtimeScene);
 
 }
 
@@ -2604,7 +2604,8 @@ gdjs.GameCode.userFunc0xe7cb68(runtimeScene);
 
 let isConditionTrue_0 = false;
 {
-{runtimeScene.getGame().getVariables().getFromIndex(8).add(1);
+{gdjs.evtTools.runtimeScene.removeTimer(runtimeScene, "GameTimer");
+}{runtimeScene.getGame().getVariables().getFromIndex(8).add(1);
 }{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("first_name").setString("PlayerName");
 }{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("username").setString("Username");
 }{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("initData").setString("InitData");
@@ -2654,7 +2655,7 @@ runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(1.3)
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") > 10;
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") > 130;
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
 {isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(90813484);
