@@ -507,7 +507,51 @@ runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(1), 
 }
 
 
-};gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDpopUPtriggerObjects1Objects = Hashtable.newFrom({"popUPtrigger": gdjs.GameCode.GDpopUPtriggerObjects1});
+};gdjs.GameCode.userFunc0x8ed7a0 = function GDJSInlineCode(runtimeScene) {
+"use strict";
+(function () {
+  const tg = window.Telegram && window.Telegram.WebApp;
+
+  if (!tg) {
+    console.log("❌ Telegram WebApp API недоступен");
+    return;
+  }
+
+  tg.ready();
+
+  setTimeout(function () {
+    const data = tg.initDataUnsafe;
+    let rawData = tg.initData || "";
+
+    // 🧼 Удалим signature (если она есть) для правильной валидации на сервере
+    if (rawData.includes("&signature=")) {
+      const parts = rawData.split("&signature=");
+      rawData = parts[0]; // обрезаем всё после &signature
+    }
+
+    // 🔧 Добавим обратно hash, если он был обрезан вместе с signature
+    if (!rawData.includes("hash=") && data && data.hash) {
+      rawData += `&hash=${data.hash}`;
+    }
+
+    if (data && data.user) {
+      const game = runtimeScene.getGame().getVariables();
+
+      game.get("PlayerName").setString(data.user.first_name || "");
+      game.get("Username").setString(data.user.username || "");
+      game.get("InitData").setString(rawData);
+
+      console.log("✅ Имя:", data.user.first_name);
+      console.log("✅ Username:", data.user.username);
+      console.log("📦 InitData:", rawData);
+    } else {
+      console.warn("⚠️ Нет данных пользователя");
+    }
+  }, 500);
+})();
+
+};
+gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDpopUPtriggerObjects1Objects = Hashtable.newFrom({"popUPtrigger": gdjs.GameCode.GDpopUPtriggerObjects1});
 gdjs.GameCode.eventsList1 = function(runtimeScene) {
 
 {
@@ -538,11 +582,11 @@ gdjs.GameCode.GDpopUPtriggerObjects1.length = 0;
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") < 50;
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") < 10;
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("CopperRedBar"), gdjs.GameCode.GDCopperRedBarObjects1);
 {for(var i = 0, len = gdjs.GameCode.GDCopperRedBarObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDCopperRedBarObjects1[i].SetValue(50 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "GameTimer"), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+    gdjs.GameCode.GDCopperRedBarObjects1[i].SetValue(10 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "GameTimer"), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
 }
 }
 { //Subevents
@@ -2553,58 +2597,7 @@ if (isConditionTrue_0) {
 }
 
 
-};gdjs.GameCode.userFunc0x7ef5320 = function GDJSInlineCode(runtimeScene) {
-"use strict";
-(function () {
-  const tg = window.Telegram && window.Telegram.WebApp;
-
-  if (!tg) {
-    console.log("Telegram WebApp API недоступен");
-    return;
-  }
-
-  tg.ready();
-
-  setTimeout(function () {
-    const data = tg.initDataUnsafe;
-    let rawData = tg.initData;
-
-    // ❗ Удалим лишнее: signature и всё что после
-    if (rawData.includes('&signature=')) {
-      rawData = rawData.split('&signature=')[0] + '&' + rawData.split('&hash=')[1];
-    }
-
-    if (data && data.user) {
-      const game = runtimeScene.getGame().getVariables();
-
-      if (data.user.first_name) {
-        game.get("PlayerName").setString(data.user.first_name);
-        console.log("Имя:", data.user.first_name);
-      }
-
-      if (data.user.username) {
-        game.get("Username").setString(data.user.username);
-        console.log("Username:", data.user.username);
-      }
-
-      game.get("InitData").setString(rawData);
-      console.log("Отправленный initData:", rawData);
-    } else {
-      console.log("Нет данных пользователя");
-    }
-  }, 500);
-})();
-
-};
-gdjs.GameCode.eventsList29 = function(runtimeScene, asyncObjectsList) {
-
-{
-
-
-gdjs.GameCode.userFunc0x7ef5320(runtimeScene);
-
-}
-
+};gdjs.GameCode.eventsList29 = function(runtimeScene, asyncObjectsList) {
 
 {
 
@@ -2662,7 +2655,7 @@ runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(1.3)
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") > 50;
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") > 10;
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
 {isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(90813484);
@@ -466285,6 +466278,14 @@ for(var i = 0, len = gdjs.GameCode.GDCheckPointsOutsideBotObjects1.length ;i < l
 { //Subevents
 gdjs.GameCode.eventsList0(runtimeScene);} //End of subevents
 }
+
+}
+
+
+{
+
+
+gdjs.GameCode.userFunc0x8ed7a0(runtimeScene);
 
 }
 
