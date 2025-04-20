@@ -2553,7 +2553,7 @@ if (isConditionTrue_0) {
 }
 
 
-};gdjs.GameCode.userFunc0xe23690 = function GDJSInlineCode(runtimeScene) {
+};gdjs.GameCode.userFunc0x7ef5320 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 (function () {
   const tg = window.Telegram && window.Telegram.WebApp;
@@ -2567,21 +2567,28 @@ if (isConditionTrue_0) {
 
   setTimeout(function () {
     const data = tg.initDataUnsafe;
-    const rawData = tg.initData; // строка с данными, для подписи
+    let rawData = tg.initData;
+
+    // ❗ Удалим лишнее: signature и всё что после
+    if (rawData.includes('&signature=')) {
+      rawData = rawData.split('&signature=')[0] + '&' + rawData.split('&hash=')[1];
+    }
 
     if (data && data.user) {
       const game = runtimeScene.getGame().getVariables();
+
       if (data.user.first_name) {
         game.get("PlayerName").setString(data.user.first_name);
         console.log("Имя:", data.user.first_name);
       }
+
       if (data.user.username) {
         game.get("Username").setString(data.user.username);
         console.log("Username:", data.user.username);
       }
 
-      // Передадим initData как строку в переменную
       game.get("InitData").setString(rawData);
+      console.log("Отправленный initData:", rawData);
     } else {
       console.log("Нет данных пользователя");
     }
@@ -2594,7 +2601,7 @@ gdjs.GameCode.eventsList29 = function(runtimeScene, asyncObjectsList) {
 {
 
 
-gdjs.GameCode.userFunc0xe23690(runtimeScene);
+gdjs.GameCode.userFunc0x7ef5320(runtimeScene);
 
 }
 
