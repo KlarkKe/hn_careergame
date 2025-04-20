@@ -538,11 +538,11 @@ gdjs.GameCode.GDpopUPtriggerObjects1.length = 0;
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") < 130;
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") < 50;
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("CopperRedBar"), gdjs.GameCode.GDCopperRedBarObjects1);
 {for(var i = 0, len = gdjs.GameCode.GDCopperRedBarObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDCopperRedBarObjects1[i].SetValue(130 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "GameTimer"), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+    gdjs.GameCode.GDCopperRedBarObjects1[i].SetValue(50 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "GameTimer"), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
 }
 }
 { //Subevents
@@ -2553,7 +2553,7 @@ if (isConditionTrue_0) {
 }
 
 
-};gdjs.GameCode.userFunc0xecee48 = function GDJSInlineCode(runtimeScene) {
+};gdjs.GameCode.userFunc0xe23690 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 (function () {
   const tg = window.Telegram && window.Telegram.WebApp;
@@ -2594,7 +2594,7 @@ gdjs.GameCode.eventsList29 = function(runtimeScene, asyncObjectsList) {
 {
 
 
-gdjs.GameCode.userFunc0xecee48(runtimeScene);
+gdjs.GameCode.userFunc0xe23690(runtimeScene);
 
 }
 
@@ -2606,9 +2606,9 @@ let isConditionTrue_0 = false;
 {
 {gdjs.evtTools.runtimeScene.removeTimer(runtimeScene, "GameTimer");
 }{runtimeScene.getGame().getVariables().getFromIndex(8).add(1);
-}{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("first_name").setString("PlayerName");
-}{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("username").setString("Username");
-}{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("initData").setString("InitData");
+}{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("first_name").setString(runtimeScene.getGame().getVariables().getFromIndex(3).getAsString());
+}{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("username").setString(runtimeScene.getGame().getVariables().getFromIndex(4).getAsString());
+}{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("initData").setString(runtimeScene.getGame().getVariables().getFromIndex(5).getAsString());
 }{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("score").setNumber(gdjs.evtTools.common.toNumber("ScoreX"));
 }{runtimeScene.getGame().getVariables().getFromIndex(6).getChild("play_count").setNumber(gdjs.evtTools.common.toNumber("PlayCount"));
 }{gdjs.evtTools.network.sendAsyncRequest("https://hn-careergame.ru/score", gdjs.evtTools.network.variableStructureToJSON(runtimeScene.getGame().getVariables().getFromIndex(6)), "POST", "application/json", gdjs.VariablesContainer.badVariable, gdjs.VariablesContainer.badVariable);
@@ -2655,7 +2655,7 @@ runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(1.3)
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") > 130;
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "GameTimer") > 50;
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
 {isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(90813484);
