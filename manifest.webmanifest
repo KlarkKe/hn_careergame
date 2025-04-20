@@ -1,0 +1,12 @@
+{
+  "name": "Match 3 Template - Complete - V11",
+  "short_name": "Match 3 Template - Complete - V11",
+  "id": "com.example.gamename",
+  "description": "This is a Match 3 Template built for GDevelop.\nYou can download the project from my itch.io page:\nhttps://vegetato.itch.io/match-3-template",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
