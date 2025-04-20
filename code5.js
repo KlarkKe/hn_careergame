@@ -106,10 +106,10 @@ if (isConditionTrue_0)
 {gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.LeaderboardCode.mapOfGDgdjs_9546LeaderboardCode_9546GDPlayerNameTextObjects2Objects, 49, 200 + runtimeScene.getGame().getVariables().getFromIndex(9).getAsNumber() * 100, "");
 }{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.LeaderboardCode.mapOfGDgdjs_9546LeaderboardCode_9546GDPlayerScoreTextObjects2Objects, 600, 200 + runtimeScene.getGame().getVariables().getFromIndex(9).getAsNumber() * 100, "");
 }{for(var i = 0, len = gdjs.LeaderboardCode.GDPlayerNameTextObjects2.length ;i < len;++i) {
-    gdjs.LeaderboardCode.GDPlayerNameTextObjects2[i].getBehavior("Text").setText(runtimeScene.getGame().getVariables().getFromIndex(10).getChild(runtimeScene.getGame().getVariables().getFromIndex(9).getAsNumber()).getChild("first_name").getAsString());
+    gdjs.LeaderboardCode.GDPlayerNameTextObjects2[i].getBehavior("Text").setText(runtimeScene.getGame().getVariables().getFromIndex(10).getChild(runtimeScene.getGame().getVariables().getFromIndex(9).getAsNumber()).getChild("fname").getAsString());
 }
 }{for(var i = 0, len = gdjs.LeaderboardCode.GDPlayerScoreTextObjects2.length ;i < len;++i) {
-    gdjs.LeaderboardCode.GDPlayerScoreTextObjects2[i].getBehavior("Text").setText(gdjs.evtTools.common.toString(runtimeScene.getGame().getVariables().getFromIndex(10).getChild(runtimeScene.getGame().getVariables().getFromIndex(9).getAsNumber()).getChild("score").getAsNumber()));
+    gdjs.LeaderboardCode.GDPlayerScoreTextObjects2[i].getBehavior("Text").setText(gdjs.evtTools.common.toString(runtimeScene.getGame().getVariables().getFromIndex(10).getChild(runtimeScene.getGame().getVariables().getFromIndex(9).getAsNumber()).getChild("sc").getAsNumber()));
 }
 }{runtimeScene.getGame().getVariables().getFromIndex(9).add(1);
 }}
