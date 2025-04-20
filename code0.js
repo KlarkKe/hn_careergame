@@ -41,7 +41,7 @@ gdjs.MainMenuCode.GDleaderButtonObjects2= [];
 gdjs.MainMenuCode.GDleaderButtonObjects3= [];
 
 
-gdjs.MainMenuCode.userFunc0x65082a0 = function GDJSInlineCode(runtimeScene) {
+gdjs.MainMenuCode.userFunc0x78198d8 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 (function () {
   const tg = window.Telegram && window.Telegram.WebApp;
@@ -82,7 +82,7 @@ gdjs.MainMenuCode.eventsList0 = function(runtimeScene) {
 {
 
 
-gdjs.MainMenuCode.userFunc0x65082a0(runtimeScene);
+gdjs.MainMenuCode.userFunc0x78198d8(runtimeScene);
 
 }
 
