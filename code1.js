@@ -526,37 +526,7 @@ runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(2), 
 }
 
 
-};gdjs.GameCode.userFunc0x4c5ca60 = function GDJSInlineCode(runtimeScene) {
-"use strict";
-(function () {
-  const tg = window.Telegram && window.Telegram.WebApp;
-
-  if (!tg) {
-    console.log("❌ Telegram WebApp API недоступен");
-    return;
-  }
-
-  tg.ready();
-
-  setTimeout(function () {
-    const data = tg.initDataUnsafe;
-
-    if (data && data.user) {
-      const game = runtimeScene.getGame().getVariables();
-
-      game.get("PlayerName").setString(data.user.first_name || "");
-      game.get("Username").setString(data.user.username || "");
-
-      console.log("✅ Имя:", data.user.first_name);
-      console.log("✅ Username:", data.user.username);
-    } else {
-      console.warn("⚠️ Нет данных пользователя");
-    }
-  }, 500);
-})();
-
-};
-gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDpopUPtriggerObjects1Objects = Hashtable.newFrom({"popUPtrigger": gdjs.GameCode.GDpopUPtriggerObjects1});
+};gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDpopUPtriggerObjects1Objects = Hashtable.newFrom({"popUPtrigger": gdjs.GameCode.GDpopUPtriggerObjects1});
 gdjs.GameCode.eventsList1 = function(runtimeScene) {
 
 {
@@ -466311,14 +466281,6 @@ for(var i = 0, len = gdjs.GameCode.GDCheckPointsOutsideBotObjects1.length ;i < l
 { //Subevents
 gdjs.GameCode.eventsList0(runtimeScene);} //End of subevents
 }
-
-}
-
-
-{
-
-
-gdjs.GameCode.userFunc0x4c5ca60(runtimeScene);
 
 }
 
